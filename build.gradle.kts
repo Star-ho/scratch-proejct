@@ -1,6 +1,6 @@
 plugins {
+    id("java")
     kotlin("jvm") version "1.8.0"
-    application
 }
 
 group = "org.example"
@@ -11,17 +11,12 @@ repositories {
 }
 
 dependencies {
+    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.2.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+
     testImplementation(kotlin("test"))
 }
 
 tasks.test {
     useJUnitPlatform()
-}
-
-kotlin {
-    jvmToolchain(8)
-}
-
-application {
-    mainClass.set("MainKt")
 }
